@@ -27,4 +27,10 @@ return [
             // Fully\Qualified\ClassName::class => Fully\Qualified\FactoryName::class,
         ],
     ],
+    'templates' => [
+        'paths' => [
+            'error'  => ['templates/error'],
+            'layout' => ['templates/layout'],
+        ],
+    ],
 ];
