@@ -38,4 +38,5 @@ use Zend\Expressive\MiddlewareFactory;
  */
 
 return function (Application $app, MiddlewareFactory $factory, ContainerInterface $container) : void {
+    $app->get('/', App\Handler\AlbumListHandler::class, 'album.list');
 };

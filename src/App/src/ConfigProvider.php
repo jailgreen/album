@@ -38,6 +38,7 @@ class ConfigProvider
             'invokables' => [
             ],
             'factories'  => [
+                Handler\AlbumListHandler::class => Handler\AlbumListHandlerFactory::class,
             ],
         ];
     }
