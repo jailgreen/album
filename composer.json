@@ -49,7 +49,8 @@
         "cs-fix": "phpcbf",
         "test": "phpunit --colors=always",
         "analyze": "phpstan analyze -l max -c phpstan.neon ./config ./public ./src ./test",
-        "license-check": "docheader check ./config ./public ./src ./test"
+        "license-check": "docheader check ./config ./public ./src ./test",
+        "serve": "php -S 0.0.0.0:8080 -t public public/index.php"
     },
     "autoload": {
         "psr-4": {

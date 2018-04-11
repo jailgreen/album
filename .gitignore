@@ -2,4 +2,4 @@ phpunit.xml
 coverage/
 vendor/
 nbproject/private/
-site/
+docs/html
