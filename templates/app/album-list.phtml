@@ -1,5 +1,29 @@
-<?php $this->layout('layout::default', ['title' => 'Albums']); ?>
+<?php
+use App\Model\Entity\AlbumEntity;
+
+$this->layout('layout::default', ['title' => 'Albums']);
+?>
 
 <div class="jumbotron">
     <h1>CD Kokoelma</h1>
 </div>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Artist</th>
+            <th>Title</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php /** @var AlbumEntity $album */ ?>
+        <?php foreach ($albumList as $album) : ?>
+        <tr>
+            <td><?= $this->e($album->getId()); ?></td>
+            <td><?= $this->e($album->getArtist()); ?></td>
+            <td><?= $this->e($album->getTitle()); ?></td>
+        </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>

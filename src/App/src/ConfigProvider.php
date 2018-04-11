@@ -26,6 +26,7 @@ class ConfigProvider
         return [
             'dependencies' => $this->getDependencies(),
             'templates'    => $this->getTemplates(),
+            'doctrine'     => $this->getDoctrine(),
         ];
     }
 
@@ -39,6 +40,12 @@ class ConfigProvider
             ],
             'factories'  => [
                 Handler\AlbumListHandler::class => Handler\AlbumListHandlerFactory::class,
+
+                Model\Repository\AlbumRepositoryInterface::class =>
+                    Model\Repository\AlbumRepositoryFactory::class,
+
+                Model\Storage\StorageInterface::class =>
+                    Db\ORMStorageFactory::class,
             ],
         ];
     }
@@ -51,6 +58,36 @@ class ConfigProvider
         return [
             'paths' => [
                 'app'    => ['templates/app'],
+            ],
+        ];
+    }
+
+    /**
+     * Returns doctrine configuration
+     * @return array
+     */
+    public function getDoctrine() : array
+    {
+        return [
+            'connection' => [
+                'orm_default' => [
+                    'params' => [
+                        'url' => 'mysql://jukka:jukka_db@localhost/jukka_db',
+                    ],
+                ],
+            ],
+            'driver' => [
+                'orm_default' => [
+                    'class' => \Doctrine\Common\Persistence\Mapping\Driver\MappingDriverChain::class,
+                    'drivers' => [
+                        'App\Model\Entity' => 'app_entity',
+                    ],
+                ],
+                'app_entity' => [
+                    'class' => \Doctrine\ORM\Mapping\Driver\AnnotationDriver::class,
+                    'cache' => 'array',
+                    'paths' => __DIR__ . '/Model/Entity',
+                ],
             ],
         ];
     }

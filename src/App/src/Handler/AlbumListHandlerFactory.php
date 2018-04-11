@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace App\Handler;
 
+use App\Model\Repository\AlbumRepositoryInterface;
 use Psr\Container\ContainerInterface;
 use Zend\Expressive\Template\TemplateRendererInterface;
 
@@ -15,6 +16,9 @@ class AlbumListHandlerFactory
 {
     public function __invoke(ContainerInterface $container) : AlbumListHandler
     {
-        return new AlbumListHandler($container->get(TemplateRendererInterface::class));
+        return new AlbumListHandler(
+            $container->get(TemplateRendererInterface::class),
+            $container->get(AlbumRepositoryInterface::class)
+        );
     }
 }

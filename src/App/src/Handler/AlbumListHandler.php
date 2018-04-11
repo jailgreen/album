@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace App\Handler;
 
+use App\Model\Repository\AlbumRepositoryInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
@@ -21,9 +22,18 @@ class AlbumListHandler implements RequestHandlerInterface
      */
     private $renderer;
 
-    public function __construct(TemplateRendererInterface $renderer)
-    {
-        $this->renderer = $renderer;
+    /**
+     *
+     * @var AlbumRepositoryInterface
+     */
+    private $albumRepository;
+
+    public function __construct(
+        TemplateRendererInterface $renderer,
+        AlbumRepositoryInterface $albumRepository
+    ){
+        $this->renderer        = $renderer;
+        $this->albumRepository = $albumRepository;
     }
 
     /**
@@ -31,7 +41,9 @@ class AlbumListHandler implements RequestHandlerInterface
      */
     public function handle(ServerRequestInterface $request) : ResponseInterface
     {
-        $data = [];
+        $data = [
+            'albumList' => $this->albumRepository->fetchAlbumList(),
+        ];
 
         return new HtmlResponse($this->renderer->render(
             'app::album-list',
