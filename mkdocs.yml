@@ -1,0 +1,9 @@
+docs_dir: docs/book
+site_dir: docs/html
+pages:
+    - "Building the Album-tutorial": index.md
+site_name: jailgreen albums
+site_description: "Zend Expressive 3 and Doctrine 2 album tutorial"
+repo_url: 'https://github.com/jailgreen/albums'
+copyright: 'Copyright (c) 2016 <a href="http://jahlgren.eu/">It-Innoo Jailgreen</a>'
+theme: readthedocs
