@@ -27,3 +27,7 @@ $this->layout('layout::default', ['title' => 'Albums']);
         <?php endforeach; ?>
     </tbody>
 </table>
+
+<p>
+    <a href="<?php echo $this->url('album.create') ?>" class="btn btn-success">Create new album list</a>
+</p>

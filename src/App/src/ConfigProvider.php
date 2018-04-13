@@ -40,6 +40,10 @@ class ConfigProvider
             ],
             'factories'  => [
                 Handler\AlbumListHandler::class => Handler\AlbumListHandlerFactory::class,
+                Handler\AlbumCreateFormHandler::class => Handler\AlbumCreateFormHandlerFactory::class,
+                Middleware\AlbumCreateMiddleware::class => Middleware\AlbumCreateMiddlewareFactory::class,
+
+                Model\InputFilter\AlbumInputFilter::class => Model\InputFilter\AlbumInputFilterFactory::class,
 
                 Model\Repository\AlbumRepositoryInterface::class =>
                     Model\Repository\AlbumRepositoryFactory::class,

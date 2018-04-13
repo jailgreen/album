@@ -42,4 +42,16 @@ class AlbumRepository implements AlbumRepositoryInterface
     {
         return $this->albumStorage->fetchAlbumList();
     }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function saveAlbum(AlbumEntity $album): bool
+    {
+        if (null === $album->getId()) {
+            return $this->albumStorage->insertAlbum($album);
+        }
+
+        return $this->albumStorage->updateAlbum($album);
+    }
 }

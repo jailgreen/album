@@ -7,6 +7,8 @@ pages:
         - "Album list middleware": part2/middleware.md
     - "Part3":
         - "Model and database": part3/database.md
+    - "Part4":
+        - "Forms and input filter": part4/index.md
 site_name: jailgreen albums
 site_description: "Zend Expressive 3 and Doctrine 2 album tutorial"
 repo_url: 'https://github.com/jailgreen/albums'

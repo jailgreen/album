@@ -22,4 +22,28 @@ interface StorageInterface
      * @return array AlbumEntity[]
      */
     public function fetchAlbumList();
+
+    /**
+     * Insert an album into storage.
+     * 
+     * @param AlbumEntity $album
+     * @return bool
+     */
+    public function insertAlbum(AlbumEntity $album);
+
+    /**
+     * Update an album.
+     *
+     * @param AlbumEntity $album
+     * @return bool
+     */
+    public function updateAlbum(AlbumEntity $album);
+
+    /**
+     * Delete an album.
+     *
+     * @param AlbumEntity $album
+     * @return bool
+     */
+    public function deleteAlbum(AlbumEntity $album);
 }

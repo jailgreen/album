@@ -22,4 +22,15 @@ interface AlbumRepositoryInterface
      * @return array AlbumEntity[]
      */
     public function fetchAlbumList();
+
+    /**
+     * Save an album.
+     *
+     * Should insert a new album if no identifier is present in the entity, and
+     * update an existing album otherwise.
+     * 
+     * @param AlbumEntity $album
+     * @return bool
+     */
+    public function saveAlbum(AlbumEntity $album);
 }

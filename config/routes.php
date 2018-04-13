@@ -39,4 +39,10 @@ use Zend\Expressive\MiddlewareFactory;
 
 return function (Application $app, MiddlewareFactory $factory, ContainerInterface $container) : void {
     $app->get('/', App\Handler\AlbumListHandler::class, 'album.list');
+    $app->get('/album/create', App\Handler\AlbumCreateFormHandler::class, 'album.create');
+    $app->post(
+        '/album/create/handle',
+        [App\Middleware\AlbumCreateMiddleware::class, App\Handler\AlbumCreateFormHandler::class],
+        'album.create.handle'
+    );
 };

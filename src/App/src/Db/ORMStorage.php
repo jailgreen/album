@@ -40,4 +40,24 @@ class ORMStorage implements StorageInterface
 
         return $albums;
     }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function insertAlbum(AlbumEntity $album): bool
+    {
+        $this->entityManager->persist($album);
+        $this->entityManager->flush();
+        return true;
+    }
+
+    public function deleteAlbum(AlbumEntity $album): bool
+    {
+        return false;
+    }
+
+    public function updateAlbum(AlbumEntity $album): bool
+    {
+        return false;
+    }
 }
