@@ -24,6 +24,14 @@ interface AlbumRepositoryInterface
     public function fetchAlbumList();
 
     /**
+     * Fetch a single album by identifier.
+     *
+     * @param int $id
+     * @return AlbumEntity|object|null
+     */
+    public function fetchAlbum(int $id);
+
+    /**
      * Save an album.
      *
      * Should insert a new album if no identifier is present in the entity, and
@@ -33,4 +41,12 @@ interface AlbumRepositoryInterface
      * @return bool
      */
     public function saveAlbum(AlbumEntity $album);
+
+    /**
+     * Delete an album.
+     *
+     * @param AlbumEntity $album
+     * @return bool
+     */
+    public function deleteAlbum(AlbumEntity $album);
 }

@@ -42,6 +42,8 @@ class ConfigProvider
                 Handler\AlbumListHandler::class => Handler\AlbumListHandlerFactory::class,
                 Handler\AlbumCreateFormHandler::class => Handler\AlbumCreateFormHandlerFactory::class,
                 Middleware\AlbumCreateMiddleware::class => Middleware\AlbumCreateMiddlewareFactory::class,
+                Handler\AlbumUpdateFormHandler::class => Handler\AlbumUpdateFormHandlerFactory::class,
+                Middleware\AlbumUpdateMiddleware::class => Middleware\AlbumUpdateMiddlewareFactory::class,
 
                 Model\InputFilter\AlbumInputFilter::class => Model\InputFilter\AlbumInputFilterFactory::class,
 

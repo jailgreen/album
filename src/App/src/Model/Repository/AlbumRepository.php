@@ -46,6 +46,14 @@ class AlbumRepository implements AlbumRepositoryInterface
     /**
      * {@inheritDoc}
      */
+    public function fetchAlbum(int $id)
+    {
+        return $this->albumStorage->fetchAlbumById($id);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     public function saveAlbum(AlbumEntity $album): bool
     {
         if (null === $album->getId()) {
@@ -53,5 +61,10 @@ class AlbumRepository implements AlbumRepositoryInterface
         }
 
         return $this->albumStorage->updateAlbum($album);
+    }
+
+    public function deleteAlbum(AlbumEntity $album): bool
+    {
+        return $this->albumStorage->deleteAlbum($album);
     }
 }

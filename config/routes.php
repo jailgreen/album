@@ -45,4 +45,10 @@ return function (Application $app, MiddlewareFactory $factory, ContainerInterfac
         [App\Middleware\AlbumCreateMiddleware::class, App\Handler\AlbumCreateFormHandler::class],
         'album.create.handle'
     );
+    $app->get('/album/update/{id:\d+}', App\Handler\AlbumUpdateFormHandler::class, 'album.update');
+    $app->post(
+        '/album/update/handle/{id:\d+}',
+        [App\Middleware\AlbumUpdateMiddleware::class, App\Handler\AlbumUpdateFormHandler::class],
+        'album.update.handle'
+    );
 };

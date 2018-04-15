@@ -8,7 +8,7 @@ $this->layout('layout::default', ['title' => 'Albums']);
     <h1>CD Kokoelma</h1>
 </div>
 
-<table class="table table-bordered table-striped">
+<table class="table table-bordered table-hover table-sm">
     <thead>
         <tr>
             <th>Id</th>
@@ -19,15 +19,24 @@ $this->layout('layout::default', ['title' => 'Albums']);
     <tbody>
         <?php /** @var AlbumEntity $album */ ?>
         <?php foreach ($albumList as $album) : ?>
+        <?php
+        $urlParams = ['id' => $album->getId()];
+        $updateUrl = $this->url('album.update', $urlParams);
+        ?>
         <tr>
             <td><?= $this->e($album->getId()); ?></td>
             <td><?= $this->e($album->getArtist()); ?></td>
             <td><?= $this->e($album->getTitle()); ?></td>
+            <td>
+                <a href="<?php echo $updateUrl; ?>" class="btn btn-success">
+                    <i class="fas fa-pencil-alt"></i>
+                </a>
+            </td>
         </tr>
         <?php endforeach; ?>
     </tbody>
 </table>
 
 <p>
-    <a href="<?php echo $this->url('album.create') ?>" class="btn btn-success">Create new album list</a>
+    <a href="<?php echo $this->url('album.create') ?>" class="btn btn-success">Create new album</a>
 </p>

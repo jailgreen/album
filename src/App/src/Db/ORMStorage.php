@@ -51,13 +51,24 @@ class ORMStorage implements StorageInterface
         return true;
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    public function fetchAlbumById(int $id)
+    {
+        $album = $this->entityManager->getRepository(AlbumEntity::class)->find($id);
+        return $album;
+    }
+
     public function deleteAlbum(AlbumEntity $album): bool
     {
-        return false;
+        $this->entityManager->remove($album);
+        return true;
     }
 
     public function updateAlbum(AlbumEntity $album): bool
     {
-        return false;
+        $this->entityManager->flush($album);
+        return true;
     }
 }

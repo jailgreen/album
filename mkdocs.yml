@@ -1,6 +1,7 @@
 docs_dir: docs/book
 site_dir: docs/html
 pages:
+    - index.md
     - "Part1":
         - "Overview": part1/index.md
     - "Part2":
@@ -9,6 +10,8 @@ pages:
         - "Model and database": part3/database.md
     - "Part4":
         - "Forms and input filter": part4/index.md
+    - "Part5":
+        - "Updating and deleting albums": part5/index.md
 site_name: jailgreen albums
 site_description: "Zend Expressive 3 and Doctrine 2 album tutorial"
 repo_url: 'https://github.com/jailgreen/albums'

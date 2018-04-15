@@ -24,6 +24,14 @@ interface StorageInterface
     public function fetchAlbumList();
 
     /**
+     * Fetch an album by identifer.
+     *
+     * @param int $id
+     * @return AlbumEntity|object|null
+     */
+    public function fetchAlbumById(int $id);
+
+    /**
      * Insert an album into storage.
      * 
      * @param AlbumEntity $album
